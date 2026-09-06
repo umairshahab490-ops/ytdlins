@@ -30,20 +30,25 @@ android {
 
     try {
         def propertiesFile = rootProject.file("keystore.properties")
-        if(propertiesFile.text != ""){
+        if (propertiesFile.exists() && propertiesFile.text.trim()) {
             properties.load(new FileInputStream(propertiesFile))
 
-            properties.load(new FileInputStream(propertiesFile))
-            signingConfigs {
-                debug {
-                    storeFile file(properties["signingConfig.storeFile"])
-                    storePassword properties["signingConfig.storePassword"]
-                    keyAlias properties["signingConfig.keyAlias"]
-                    keyPassword properties["signingConfig.keyPassword"]
+            def storeFilePath = properties["signingConfig.storeFile"]
+            if (storeFilePath != null && storeFilePath.toString().trim()) {
+                signingConfigs {
+                    debug {
+                        storeFile file(storeFilePath)
+                        storePassword properties["signingConfig.storePassword"]
+                        keyAlias properties["signingConfig.keyAlias"]
+                        keyPassword properties["signingConfig.keyPassword"]
+                    }
                 }
             }
         }
-    }catch(IOException ignored){}
+    } catch (Exception ignored) {
+        // Ignore missing/invalid keystore – allows CI builds without secrets and local debug builds
+    }
+
     defaultConfig {
         applicationId "com.deniscerri.ytdl"
         minSdk 24
@@ -74,14 +79,19 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             debuggable false
-            signingConfig signingConfigs.debug
+            // Only apply custom signing if it was successfully configured
+            if (signingConfigs.findByName('debug')?.storeFile != null) {
+                signingConfig signingConfigs.debug
+            }
         }
 
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable true
-            signingConfig signingConfigs.debug
+            if (signingConfigs.findByName('debug')?.storeFile != null) {
+                signingConfig signingConfigs.debug
+            }
         }
     }
 
@@ -224,7 +234,7 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
 
-    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'com.google.code.gson:gson:2.13.2"
     implementation "com.squareup.okhttp3:okhttp:5.3.2"
 
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0'
