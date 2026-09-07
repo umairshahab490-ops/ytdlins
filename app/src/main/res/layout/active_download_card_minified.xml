@@ -2,21 +2,21 @@
 <com.google.android.material.card.MaterialCardView android:id="@+id/download_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@android:color/transparent"
+    android:backgroundTint="?attr/colorSurfaceContainerLow"
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
     app:checkedIcon="@null"
-    app:strokeColor="?attr/colorPrimary"
+    app:strokeColor="?attr/colorOutlineVariant"
     app:cardPreventCornerOverlap="true"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:cardCornerRadius="10dp"
-    android:layout_marginVertical="10dp"
-    app:shapeAppearance="@style/ShapeAppearanceOverlay.Avatar"
-    app:strokeWidth="0dp"
+    app:cardCornerRadius="@dimen/shape_card"
+    app:cardElevation="@dimen/elevation_1"
+    android:layout_marginVertical="@dimen/spacing_xs"
+    app:strokeWidth="0.5dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -24,23 +24,22 @@
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress"
         android:layout_width="match_parent"
-        app:trackColor="#000"
-        android:layout_height="match_parent"
+        android:layout_height="3dp"
         android:layout_gravity="bottom"
-        android:alpha="0.3"
-        android:scaleY="200"/>
-
+        android:alpha="0.85"
+        app:trackThickness="3dp"
+        app:trackCornerRadius="1.5dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:paddingVertical="10dp"
+        android:paddingVertical="@dimen/spacing_sm"
         android:layout_height="wrap_content">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/downloads_image_view"
             android:layout_width="0dp"
             android:layout_height="50dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/spacing_md"
             android:adjustViewBounds="true"
             android:background="?attr/colorSurfaceVariant"
             android:scaleType="centerCrop"
@@ -49,7 +48,7 @@
             app:layout_constraintEnd_toStartOf="@+id/download_item_data"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.Avatar2" />
+            app:shapeAppearance="@style/ShapeAppearance.YTDLnis.Small" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/download_item_data"
@@ -66,10 +65,11 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:paddingHorizontal="5dp"
+                android:paddingHorizontal="@dimen/spacing_xxs"
                 android:scrollbars="none"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -87,93 +87,81 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/download_type"
-                        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="5dp"
+                        android:layout_marginHorizontal="@dimen/spacing_xxs"
                         android:background="@drawable/rounded_corner"
-                        android:backgroundTint="?attr/colorSecondary"
+                        android:backgroundTint="?attr/colorSecondaryContainer"
+                        android:textColor="?attr/colorOnSecondaryContainer"
                         android:clickable="false"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:maxLength="17"
                         android:minWidth="30dp"
-                        android:paddingHorizontal="5dp"
-                        android:textStyle="bold"
-                        app:cornerRadius="10dp"
-                        app:drawableStartCompat="@drawable/ic_music_formatcard"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        android:paddingHorizontal="@dimen/spacing_xs"
+                        android:paddingVertical="2dp"
+                        android:textSize="11sp"
+                        app:cornerRadius="@dimen/shape_small"
+                        app:drawableStartCompat="@drawable/ic_music_formatcard" />
 
                     <TextView
                         android:id="@+id/file_size"
-                        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="@dimen/spacing_xxs"
                         android:background="@drawable/rounded_corner"
-                        android:backgroundTint="?attr/colorSecondary"
+                        android:backgroundTint="?attr/colorSecondaryContainer"
+                        android:textColor="?attr/colorOnSecondaryContainer"
                         android:clickable="false"
                         android:gravity="center"
                         android:minWidth="30dp"
-                        android:paddingHorizontal="5dp"
-                        android:textStyle="bold"
-                        app:cornerRadius="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:paddingHorizontal="@dimen/spacing_xs"
+                        android:paddingVertical="2dp"
+                        android:textSize="11sp"
+                        app:cornerRadius="@dimen/shape_small" />
 
                     <TextView
                         android:id="@+id/format_note"
-                        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="@dimen/spacing_xxs"
                         android:background="@drawable/rounded_corner"
-                        android:backgroundTint="?attr/colorSecondary"
+                        android:backgroundTint="?attr/colorSecondaryContainer"
+                        android:textColor="?attr/colorOnSecondaryContainer"
                         android:clickable="false"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:maxLength="17"
                         android:minWidth="30dp"
-                        android:paddingHorizontal="5dp"
-                        android:textStyle="bold"
-                        app:cornerRadius="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:paddingHorizontal="@dimen/spacing_xs"
+                        android:paddingVertical="2dp"
+                        android:textSize="11sp"
+                        app:cornerRadius="@dimen/shape_small" />
 
                     <TextView
                         android:id="@+id/codec"
-                        style="@style/Widget.Material3.FloatingActionButton.Large.Secondary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="@dimen/spacing_xxs"
                         android:background="@drawable/rounded_corner"
-                        android:backgroundTint="?attr/colorSecondary"
+                        android:backgroundTint="?attr/colorSecondaryContainer"
+                        android:textColor="?attr/colorOnSecondaryContainer"
                         android:clickable="false"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:maxLength="17"
                         android:minWidth="30dp"
-                        android:paddingHorizontal="5dp"
-                        android:textStyle="bold"
-                        app:cornerRadius="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
+                        android:paddingHorizontal="@dimen/spacing_xs"
+                        android:paddingVertical="2dp"
+                        android:textSize="11sp"
+                        app:cornerRadius="@dimen/shape_small" />
 
                 </LinearLayout>
-
 
             </HorizontalScrollView>
 
@@ -184,14 +172,14 @@
                 android:fontFamily="monospace"
                 android:maxLines="2"
                 android:ellipsize="end"
-                android:layout_margin="5dp"
-                android:textSize="13sp"
+                android:layout_margin="@dimen/spacing_xxs"
+                android:textSize="12sp"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/options"
@@ -200,7 +188,7 @@
             android:layout_gravity="end|center_vertical"
             android:clickable="false"
             android:focusable="false"
-            android:padding="16dp"
+            android:padding="@dimen/spacing_md"
             android:tintMode="src_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -208,7 +196,6 @@
             app:srcCompat="@drawable/baseline_more_vert_24"
             app:tint="?attr/colorControlNormal"
             tools:ignore="ContentDescription" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
