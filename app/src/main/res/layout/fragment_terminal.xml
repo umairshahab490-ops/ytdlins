@@ -29,7 +29,8 @@
         <com.deniscerri.ytdl.ui.more.terminal.virtualkeys.VirtualKeysView
             android:id="@+id/virtualKeys"
             android:layout_width="match_parent"
-            android:layout_height="70dp"/>
+            android:layout_height="72dp"
+            android:background="?attr/colorSurfaceContainer" />
 
     </LinearLayout>
 
@@ -41,13 +42,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             style="@style/Widget.Material3.BottomAppBar"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_gravity="bottom"
+            android:backgroundTint="?attr/colorSurfaceContainer"
+            app:elevation="@dimen/elevation_0"
             app:menu="@menu/terminal_menu" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
