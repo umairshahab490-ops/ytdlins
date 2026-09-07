@@ -4,24 +4,30 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingHorizontal="10dp"
+    android:paddingHorizontal="@dimen/spacing_md"
+    android:paddingTop="@dimen/spacing_sm"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
-        android:paddingTop="10dp"
+        android:paddingTop="@dimen/spacing_xs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:text="@string/adjust_video"/>
+        android:paddingBottom="@dimen/spacing_xs"
+        android:text="@string/adjust_video"
+        android:textSize="13sp"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:textStyle="bold" />
 
     <HorizontalScrollView
         android:scrollbars="none"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_xxs">
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="@dimen/spacing_xxs"
             app:chipSpacingVertical="0dp"
             app:singleLine="true">
 
@@ -29,113 +35,102 @@
                 android:id="@+id/thumbnail"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:checked="false"
                 app:chipIcon="@drawable/ic_image"
                 android:outlineProvider="none"
+                app:chipCornerRadius="@dimen/shape_chip"
                 android:text="@string/thumbnail" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chapters"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:checked="false"
                 app:chipIcon="@drawable/ic_chapters"
                 android:outlineProvider="none"
+                app:chipCornerRadius="@dimen/shape_chip"
                 android:text="@string/chapters" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/adjust_subtitles"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="@string/subtitles"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_subtitles"
                 android:minWidth="30dp"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
         </com.google.android.material.chip.ChipGroup>
-
 
     </HorizontalScrollView>
 
     <HorizontalScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:paddingBottom="@dimen/spacing_xxs">
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="@dimen/spacing_xxs"
             app:singleLine="true">
-
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/remove_audio"
                 style="@style/Widget.Material3.Chip.Filter.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:minWidth="30dp"
                 android:text="@string/remove_audio"
                 android:visibility="gone"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/adjust_audio"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="@string/audio"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_music"
                 android:minWidth="30dp"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/recode_video"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:checked="false"
                 app:chipIconVisible="true"
                 android:outlineProvider="none"
                 app:chipIcon="@drawable/baseline_video_metadata"
+                app:chipCornerRadius="@dimen/shape_chip"
                 android:text="@string/recode_video" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/adjust_live_stream"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="@string/live_stream"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/baseline_live_tv_24"
                 android:minWidth="30dp"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
         </com.google.android.material.chip.ChipGroup>
 
@@ -143,112 +138,99 @@
 
     <HorizontalScrollView
         android:scrollbars="none"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_xxs">
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="@dimen/spacing_xxs"
             app:singleLine="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/sponsorblock_filters"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="@string/sponsorblock"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_money"
                 android:minWidth="30dp"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/filename_template"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="@string/file_name_template"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_edit"
                 android:minWidth="30dp"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
         </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
 
     <HorizontalScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:paddingBottom="@dimen/spacing_xs">
 
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="@dimen/spacing_xxs"
             app:singleLine="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/extra_commands"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 android:text="@string/use_extra_commands"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_terminal"
                 android:minWidth="30dp"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/cut"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_cut"
                 android:minWidth="30dp"
                 android:text="@string/cut"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/crop"
                 style="@style/Widget.Material3.Chip.Assist.Elevated"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:gravity="center"
                 app:chipIconVisible="true"
                 app:chipIcon="@drawable/ic_crop"
                 android:minWidth="30dp"
                 android:text="@string/crop"
-                app:cornerRadius="10dp"
-                android:outlineProvider="none"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                app:chipCornerRadius="@dimen/shape_chip"
+                android:outlineProvider="none" />
 
         </com.google.android.material.chip.ChipGroup>
 
     </HorizontalScrollView>
-
 
 </LinearLayout>
