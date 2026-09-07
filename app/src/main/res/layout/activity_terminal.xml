@@ -11,7 +11,9 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="?attr/colorSurface"
+        android:elevation="@dimen/elevation_0"
+        app:elevation="@dimen/elevation_0"
         android:fitsSystemWindows="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +23,13 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/custom_command_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="?attr/actionBarSize"
             android:elevation="0dp"
             app:menu="@menu/terminal_top_menu"
             app:navigationIcon="@drawable/ic_back"
             app:navigationContentDescription="@string/back"
-            app:title="@string/terminal" />
-
+            app:title="@string/terminal"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
         <com.google.android.material.slider.Slider
             android:visibility="gone"
@@ -39,7 +41,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appbar" />
-
 
     </com.google.android.material.appbar.AppBarLayout>
 
