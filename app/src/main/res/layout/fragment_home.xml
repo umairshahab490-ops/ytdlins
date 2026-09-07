@@ -19,12 +19,12 @@
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:scrollbars="none"
-                android:paddingHorizontal="10dp"
+                android:paddingHorizontal="@dimen/spacing_sm"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/providers"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="@dimen/spacing_xxs"
                     app:singleSelection="true"
                     app:chipSpacingVertical="-10dp"
                     android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/queries"
-                    android:layout_margin="10dp"
+                    android:layout_margin="@dimen/spacing_sm"
                     app:chipSpacingVertical="-10dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -61,9 +61,9 @@
                     style="?attr/materialIconButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="@dimen/spacing_sm"
                     app:iconSize="20dp"
-                    app:cornerRadius="10dp"
+                    app:cornerRadius="@dimen/shape_small"
                     app:icon="@drawable/ic_search"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -92,8 +92,7 @@
             android:scrollbars="none"
             android:clipToPadding="false"
             android:paddingBottom="200dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:layout_width="match_parent"
@@ -105,19 +104,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/spacing_sm"
                 android:orientation="vertical">
 
                 <include layout="@layout/result_card_shimmer" />
-
                 <include layout="@layout/result_card_shimmer" />
-
                 <include layout="@layout/result_card_shimmer" />
-
                 <include layout="@layout/result_card_shimmer" />
-
                 <include layout="@layout/result_card_shimmer" />
-
 
             </LinearLayout>
 
@@ -127,20 +121,25 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/home_appbarlayout"
-        android:background="@null"
+        android:background="?attr/colorSurface"
+        android:elevation="@dimen/elevation_0"
+        app:elevation="@dimen/elevation_0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/home_toolbar"
             android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             app:title="@string/app_name"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:layout_height="wrap_content" />
+            app:titleCentered="false"
+            app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_scrollFlags="scroll|enterAlways" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginVertical="15dp"
+            android:layout_marginHorizontal="@dimen/spacing_md"
+            android:layout_marginBottom="@dimen/spacing_sm"
             app:layout_scrollFlags="scroll|enterAlways"
             android:layout_height="wrap_content">
 
@@ -159,22 +158,16 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:cardCornerRadius="30dp">
-
-                </com.google.android.material.card.MaterialCardView>
-
+                    app:cardCornerRadius="@dimen/shape_sheet" />
 
             </com.facebook.shimmer.ShimmerFrameLayout>
-
 
             <com.google.android.material.search.SearchBar
                 android:id="@+id/search_bar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="@string/search_hint"
-                app:menu="@menu/main_menu" >
-
-            </com.google.android.material.search.SearchBar>
+                app:menu="@menu/main_menu" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -188,7 +181,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="@dimen/spacing_xl"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.chip.ChipGroup
@@ -202,16 +195,13 @@
                         android:id="@+id/all"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="36dp"
                         android:gravity="center"
                         android:text="@string/all"
                         android:tag="all"
                         android:checked="true"
                         android:minWidth="30dp"
-                        app:cornerRadius="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:chipCornerRadius="@dimen/shape_chip" />
 
                 </com.google.android.material.chip.ChipGroup>
 
@@ -221,7 +211,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <LinearLayout
         android:id="@+id/home_fabs"
         android:layout_width="match_parent"
@@ -229,18 +218,18 @@
         android:orientation="vertical"
         android:layout_gravity="bottom|end">
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/copied_url_fab"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:text="@string/link_you_copied"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="10dp"
-                android:contentDescription="@string/link_you_copied"
-                app:icon="@drawable/ic_clipboard"
-                app:useCompatPadding="true" />
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/copied_url_fab"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:text="@string/link_you_copied"
+            android:layout_marginHorizontal="@dimen/spacing_md"
+            android:layout_marginBottom="@dimen/spacing_xs"
+            android:contentDescription="@string/link_you_copied"
+            app:icon="@drawable/ic_clipboard"
+            app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/download_all_fab"
@@ -248,23 +237,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="@dimen/spacing_xs"
+            android:layout_marginHorizontal="@dimen/spacing_md"
             android:text="@string/download_all"
             app:icon="@drawable/ic_down" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/download_selected_fab"
             android:visibility="gone"
-            app:elevation="0dp"
+            app:elevation="@dimen/elevation_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:layout_marginBottom="10dp"
+            android:layout_margin="@dimen/spacing_md"
+            android:layout_marginBottom="@dimen/spacing_xs"
             app:icon="@drawable/ic_down"
             android:text="@string/download"
-            app:srcCompat="@drawable/ic_music"/>
+            app:srcCompat="@drawable/ic_music" />
 
     </LinearLayout>
 
