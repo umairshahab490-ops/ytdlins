@@ -2,10 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginHorizontal="@dimen/spacing_xs"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
 
     <RelativeLayout
         android:layout_width="0dp"
@@ -19,16 +17,16 @@
             android:id="@+id/result_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
+            app:cardCornerRadius="@dimen/shape_card"
+            app:cardElevation="@dimen/elevation_1"
             app:cardBackgroundColor="?attr/colorSurfaceContainer"
-            app:strokeColor="?attr/colorPrimary"
+            app:strokeColor="?attr/colorOutlineVariant"
             app:checkedIconTint="?attr/colorPrimary"
-            app:cardMaxElevation="12dp"
+            app:cardMaxElevation="@dimen/elevation_3"
             app:cardPreventCornerOverlap="true"
             android:checkable="true"
             app:strokeWidth="0dp"
-            android:layout_margin="10dp">
+            android:layout_margin="@dimen/spacing_xs">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/result_image_view"
@@ -37,15 +35,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
+            <!-- Subtle bottom gradient for text legibility -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/scrim_bottom_gradient" />
+
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/download_progress"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="3dp"
                 android:layout_gravity="bottom"
                 android:indeterminate="true"
                 android:visibility="gone"
-                android:alpha="0.7"
-                android:scaleY="100" />
+                android:alpha="0.85"
+                app:trackThickness="3dp"
+                app:trackCornerRadius="1.5dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -54,7 +60,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:dividerPadding="5dp"
+                    android:dividerPadding="@dimen/spacing_xxs"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toTopOf="@+id/download_music"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -67,16 +73,16 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:paddingStart="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingEnd="10dp"
+                        android:paddingStart="@dimen/spacing_sm"
+                        android:paddingTop="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_sm"
                         android:scrollbars="none"
                         android:shadowColor="@color/black"
                         android:shadowDx="1"
                         android:shadowDy="1"
-                        android:shadowRadius="1"
+                        android:shadowRadius="2"
                         android:textColor="#FFF"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -86,69 +92,69 @@
                         android:ellipsize="end"
                         android:gravity="bottom"
                         android:maxLines="1"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
+                        android:paddingStart="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_sm"
                         android:scrollbars="none"
                         android:shadowColor="@color/black"
                         android:shadowDx="1"
                         android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:textColor="#FFF"
+                        android:shadowRadius="2"
+                        android:textColor="#E6FFFFFF"
                         android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                 </LinearLayout>
 
+                <!-- Duration as small badge -->
                 <TextView
                     android:id="@+id/duration"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:gravity="bottom"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="20dp"
-                    android:shadowColor="@color/black"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_xs"
+                    android:background="#99000000"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/spacing_xs"
+                    android:paddingVertical="2dp"
                     android:textColor="@color/white"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/download_music"
                     style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Secondary"
-                    android:layout_width="55dp"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
                     app:elevation="0dp"
                     android:elevation="0dp"
                     app:borderWidth="0dp"
                     android:outlineProvider="none"
                     android:contentDescription="@string/audio"
-                    android:layout_height="55dp"
-                    android:layout_marginVertical="10dp"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="@dimen/spacing_xs"
+                    android:layout_marginHorizontal="@dimen/spacing_xxs"
                     app:icon="@drawable/ic_music"
+                    app:iconSize="20dp"
+                    app:cornerRadius="@dimen/shape_small"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/download_video" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/download_video"
                     style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Secondary"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_margin="10dp"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_margin="@dimen/spacing_xs"
                     app:elevation="0dp"
                     android:elevation="0dp"
                     android:contentDescription="@string/video"
                     app:borderWidth="0dp"
                     android:outlineProvider="none"
                     app:icon="@drawable/ic_video"
+                    app:iconSize="20dp"
+                    app:cornerRadius="@dimen/shape_small"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
