@@ -15,8 +15,9 @@
         android:text="@string/incognito"
         android:textStyle="bold"
         android:visibility="gone"
-        android:padding="5dp"
-        android:background="?colorPrimaryContainer"
+        android:padding="@dimen/spacing_xxs"
+        android:background="?attr/colorPrimaryContainer"
+        android:textColor="?attr/colorOnPrimaryContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,8 +32,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/incognito_header"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/incognito_header" />
 
     <LinearLayout
         android:id="@+id/notification_container"
@@ -41,8 +41,8 @@
         android:orientation="vertical"
         android:divider="@drawable/divider_10dp"
         android:showDividers="middle"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="@dimen/spacing_xl"
+        android:layout_marginBottom="@dimen/spacing_xl"
         android:animateLayoutChanges="true"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView" />
 
@@ -50,12 +50,20 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorSurfaceContainer"
+        android:elevation="@dimen/elevation_0"
+        app:elevation="@dimen/elevation_0"
+        app:itemIconSize="24dp"
+        app:itemPaddingTop="@dimen/spacing_xs"
+        app:itemPaddingBottom="@dimen/spacing_xs"
         app:labelVisibilityMode="labeled"
+        app:itemTextAppearanceActive="@style/TextAppearance.Material3.LabelMedium"
+        app:itemTextAppearanceInactive="@style/TextAppearance.Material3.LabelMedium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
