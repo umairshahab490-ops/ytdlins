@@ -56,6 +56,7 @@
         app:itemIconSize="24dp"
         app:itemPaddingTop="@dimen/spacing_xs"
         app:itemPaddingBottom="@dimen/spacing_xs"
+        app:itemActiveIndicatorStyle="@style/Widget.YTDLnis.BottomNavigationView.ActiveIndicator"
         app:labelVisibilityMode="labeled"
         app:itemTextAppearanceActive="@style/TextAppearance.Material3.LabelMedium"
         app:itemTextAppearanceInactive="@style/TextAppearance.Material3.LabelMedium"
