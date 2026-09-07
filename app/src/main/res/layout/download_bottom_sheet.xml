@@ -15,19 +15,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Header: title block on left, actions on right, no title wrap -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_xl"
-            android:layout_marginTop="@dimen/spacing_xl"
-            android:orientation="horizontal">
+            android:layout_marginHorizontal="@dimen/spacing_md"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:paddingBottom="@dimen/spacing_xs">
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:visibility="gone"
                 android:layout_width="0dp"
-                android:layout_marginTop="4dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_sm"
                 app:layout_constraintEnd_toStartOf="@+id/bottomsheet_schedule_button"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,10 +39,10 @@
                     android:id="@+id/bottom_sheet_loading_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="2"
-                    android:singleLine="false"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="@string/loading"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </com.facebook.shimmer.ShimmerFrameLayout>
@@ -51,25 +51,25 @@
                 android:id="@+id/bottom_sheet_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:maxLines="2"
-                android:layout_marginEnd="@dimen/spacing_md"
-                android:singleLine="false"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginEnd="@dimen/spacing_sm"
                 android:text="@string/download"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSurface"
                 app:layout_constraintEnd_toStartOf="@+id/bottomsheet_schedule_button"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_subtitle" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintHorizontal_bias="0.0"
-                android:layout_marginEnd="@dimen/spacing_md"
+                android:layout_marginEnd="@dimen/spacing_sm"
                 app:layout_constraintEnd_toStartOf="@+id/bottomsheet_schedule_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shimmer_loading_title"
@@ -79,8 +79,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="2"
-                    android:singleLine="false"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:text="@string/please_wait"
                     android:textSize="13sp"
                     android:textColor="?attr/colorOnSurfaceVariant" />
@@ -91,23 +91,24 @@
                 android:id="@+id/bottom_sheet_subtitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:layout_marginEnd="@dimen/spacing_md"
-                android:singleLine="false"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginEnd="@dimen/spacing_sm"
                 android:text="@string/configure_download"
                 android:textSize="13sp"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toStartOf="@+id/bottomsheet_schedule_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_title" />
+                app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_title"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
-            <!-- Schedule is secondary; Download is primary -->
+            <!-- Secondary: schedule -->
             <Button
                 android:id="@+id/bottomsheet_schedule_button"
                 style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="@dimen/spacing_xs"
                 android:outlineProvider="none"
                 app:icon="@drawable/ic_clock"
@@ -116,24 +117,23 @@
                 app:layout_constraintEnd_toStartOf="@+id/bottomsheet_download_button"
                 app:layout_constraintTop_toTopOf="@id/bottomsheet_download_button" />
 
+            <!-- Primary: Download – filled so hierarchy is obvious -->
             <Button
                 android:id="@+id/bottomsheet_download_button"
-                style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+                style="@style/Widget.Material3.Button.Icon"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="120dp"
-                android:autoLink="all"
-                android:elevation="@dimen/elevation_2"
+                android:layout_height="48dp"
+                android:minWidth="112dp"
+                android:paddingHorizontal="@dimen/spacing_md"
                 android:outlineProvider="none"
-                android:stateListAnimator="@null"
                 android:text="@string/download"
                 android:textStyle="bold"
                 app:icon="@drawable/ic_down"
+                app:iconGravity="textStart"
                 app:cornerRadius="@dimen/shape_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -142,7 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_md"
-            android:layout_marginTop="@dimen/spacing_sm"
+            android:layout_marginTop="@dimen/spacing_xs"
             android:backgroundTint="@android:color/transparent"
             app:tabGravity="start"
             app:tabMinWidth="0dp"
@@ -223,10 +223,7 @@
                 android:autoLink="all"
                 android:outlineProvider="none"
                 android:text="@string/update"
-                app:icon="@drawable/ic_update"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:icon="@drawable/ic_update" />
 
         </LinearLayout>
 
