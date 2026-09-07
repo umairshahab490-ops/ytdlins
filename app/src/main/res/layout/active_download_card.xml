@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_marginHorizontal="@dimen/spacing_xs"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="H,2:1"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,12 +17,12 @@
             android:id="@+id/active_download_card_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
+            app:cardCornerRadius="@dimen/shape_card"
+            app:cardElevation="@dimen/elevation_1"
             android:checkable="true"
             app:strokeWidth="0dp"
             app:cardPreventCornerOverlap="true"
-            android:layout_margin="10dp">
+            android:layout_margin="@dimen/spacing_xs">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image_view"
@@ -31,14 +31,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/progress"
-                    android:layout_width="match_parent"
-                    app:trackColor="#000"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="bottom"
-                    android:alpha="0.3"
-                    android:scaleY="200"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/scrim_bottom_gradient" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_gravity="bottom"
+                android:alpha="0.85"
+                app:trackThickness="3dp"
+                app:trackCornerRadius="1.5dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -49,7 +55,7 @@
                     style="?attr/materialIconButtonFilledTonalStyle"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="@dimen/spacing_xs"
                     android:insetLeft="0dp"
                     android:insetTop="0dp"
                     android:insetRight="0dp"
@@ -68,8 +74,8 @@
                     android:id="@+id/linearlayout2_horizontalscrollview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="@dimen/spacing_xs"
+                    android:layout_marginTop="@dimen/spacing_xs"
                     android:scrollbars="none"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -82,7 +88,7 @@
                         android:layout_gravity="center_vertical|end"
                         android:orientation="horizontal"
                         android:outlineProvider="none"
-                        android:paddingHorizontal="10dp"
+                        android:paddingHorizontal="@dimen/spacing_xs"
                         app:chipSpacingHorizontal="0dp">
 
                         <com.google.android.material.chip.Chip
@@ -96,9 +102,6 @@
                             app:chipBackgroundColor="?attr/colorSurface"
                             app:chipMinTouchTargetSize="0dp"
                             app:chipStrokeWidth="0.5dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
                             app:shapeAppearance="@style/ShapeAppearanceOverlay.Chip.Rounded" />
 
                     </com.google.android.material.chip.ChipGroup>
@@ -108,8 +111,8 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:dividerPadding="5dp"
-                    android:layout_marginTop="5dp"
+                    android:dividerPadding="@dimen/spacing_xxs"
+                    android:layout_marginTop="@dimen/spacing_xxs"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toTopOf="@+id/output"
                     app:layout_constraintEnd_toStartOf="@+id/active_pause_cancel_btns"
@@ -124,11 +127,11 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="5dp"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="1"
+                        android:paddingStart="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_xxs"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
                         android:textColor="#FFF"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -140,20 +143,17 @@
                         android:ellipsize="end"
                         android:gravity="bottom"
                         android:maxLines="1"
-                        android:textColor="#FFF"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="5dp"
-                        android:shadowDx="2"
-                        android:shadowDy="2"
-                        android:shadowRadius="1"
+                        android:textColor="#E6FFFFFF"
+                        android:paddingStart="@dimen/spacing_sm"
+                        android:paddingEnd="@dimen/spacing_sm"
+                        android:paddingBottom="@dimen/spacing_xxs"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
                         android:textSize="11sp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="normal" />
 
                 </LinearLayout>
-
-
 
                 <LinearLayout
                     android:id="@+id/active_pause_cancel_btns"
@@ -163,9 +163,8 @@
                     android:animateLayoutChanges="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="5dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    >
+                    android:layout_marginEnd="@dimen/spacing_xxs"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/active_download_resume"
@@ -175,14 +174,10 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         app:backgroundTint="?attr/colorSurface"
-                        app:cornerRadius="15dp"
+                        app:cornerRadius="@dimen/shape_small"
                         app:icon="@drawable/exomedia_ic_play_arrow_white"
-                        app:iconSize="30dp"
-                        app:iconTint="?android:textColorPrimary"
-                        app:layout_constraintBottom_toTopOf="@+id/output"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearlayout2_horizontalscrollview"
-                        app:layout_constraintVertical_bias="0.51" />
+                        app:iconSize="24dp"
+                        app:iconTint="?android:textColorPrimary" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/active_download_delete"
@@ -191,32 +186,28 @@
                         android:contentDescription="@string/Remove"
                         android:layout_height="wrap_content"
                         app:backgroundTint="?attr/colorSurface"
-                        app:cornerRadius="15dp"
+                        app:cornerRadius="@dimen/shape_small"
                         android:padding="8dp"
                         app:icon="@drawable/baseline_close_24"
-                        app:iconSize="30dp"
-                        app:iconTint="?android:textColorPrimary"
-                        app:layout_constraintBottom_toTopOf="@+id/output"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/linearlayout2_horizontalscrollview"
-                        app:layout_constraintVertical_bias="0.51" />
+                        app:iconSize="24dp"
+                        app:iconTint="?android:textColorPrimary" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/output"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="48dp"
                     android:clickable="true"
                     android:ellipsize="end"
                     android:focusable="true"
                     android:fontFamily="monospace"
                     android:gravity="bottom"
                     android:maxLines="2"
-                    android:padding="10dp"
+                    android:padding="@dimen/spacing_sm"
                     android:shadowColor="#000"
-                    android:shadowDx="4"
-                    android:shadowDy="4"
+                    android:shadowDx="2"
+                    android:shadowDy="2"
                     android:shadowRadius="2"
                     android:textStyle="bold"
                     android:textColor="#FFF"
