@@ -15,7 +15,7 @@
 
     <style name="Divider.Horizontal" parent="Divider">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item> // You can change thickness here.
+        <item name="android:layout_height">1dp</item>
         <item name="android:layout_marginBottom">10dp</item>
     </style>
 
@@ -28,6 +28,7 @@
         <item name="android:layout_marginStart">5dp</item>
     </style>
 
+    <!-- Existing avatar / image shapes kept for compatibility -->
     <style name="ShapeAppearanceOverlay.Avatar" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5dp</item>
@@ -51,10 +52,54 @@
 
     <style name="ShapeAppearanceOverlay.Chip.Rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopLeft">12dp</item>
-        <item name="cornerSizeTopRight">12dp</item>
-        <item name="cornerSizeBottomLeft">12dp</item>
-        <item name="cornerSizeBottomRight">12dp</item>
+        <item name="cornerSizeTopLeft">@dimen/shape_chip</item>
+        <item name="cornerSizeTopRight">@dimen/shape_chip</item>
+        <item name="cornerSizeBottomLeft">@dimen/shape_chip</item>
+        <item name="cornerSizeBottomRight">@dimen/shape_chip</item>
+    </style>
+
+    <!-- ========================================================= -->
+    <!-- DESIGN TOKENS – ShapeAppearance styles (Chunk 1)          -->
+    <!-- Consistent corner language used by cards, sheets, chips.  -->
+    <!-- ========================================================= -->
+
+    <style name="ShapeAppearance.YTDLnis.Card" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/shape_card</item>
+    </style>
+
+    <style name="ShapeAppearance.YTDLnis.Sheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/shape_sheet</item>
+    </style>
+
+    <style name="ShapeAppearance.YTDLnis.Chip" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/shape_chip</item>
+    </style>
+
+    <style name="ShapeAppearance.YTDLnis.Button" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/shape_button</item>
+    </style>
+
+    <style name="ShapeAppearance.YTDLnis.Small" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/shape_small</item>
+    </style>
+
+    <style name="ShapeAppearance.YTDLnis.Dialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/shape_dialog</item>
+    </style>
+
+    <!-- Convenience overlays for Material components -->
+    <style name="ShapeAppearanceOverlay.YTDLnis.Card" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">@dimen/shape_card</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.YTDLnis.Chip" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerSize">@dimen/shape_chip</item>
     </style>
 
     <style name="Preference.SwitchPreferenceCompat.Material3" parent="@style/Preference.SwitchPreferenceCompat.Material">
