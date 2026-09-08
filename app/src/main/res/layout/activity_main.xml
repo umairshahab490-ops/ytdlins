@@ -50,7 +50,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_glass_nav"
+        android:background="@drawable/bg_glass_nav_layered"
         android:elevation="@dimen/elevation_glass"
         app:elevation="@dimen/elevation_glass"
         app:itemIconSize="24dp"
