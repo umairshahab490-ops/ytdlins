@@ -17,20 +17,19 @@
         tools:ignore="MissingConstraints">
 
         <FrameLayout
-            android:layout_width="96dp"
-            android:layout_height="96dp"
+            android:layout_width="88dp"
+            android:layout_height="88dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="?attr/colorSurfaceContainerHigh">
+            android:background="@drawable/bg_glass_card">
 
             <ImageView
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_no_results"
-                app:tint="?attr/colorOnSurfaceVariant" />
+                app:tint="?attr/colorPrimary" />
 
         </FrameLayout>
 
