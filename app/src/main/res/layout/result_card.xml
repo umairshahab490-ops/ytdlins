@@ -18,14 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardCornerRadius="@dimen/shape_card"
-            app:cardElevation="@dimen/elevation_2"
+            app:cardElevation="@dimen/elevation_glass"
             app:cardBackgroundColor="?attr/colorSurfaceContainer"
-            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeColor="@color/glass_stroke"
             app:checkedIconTint="?attr/colorPrimary"
-            app:cardMaxElevation="@dimen/elevation_3"
+            app:cardMaxElevation="@dimen/elevation_glass"
             app:cardPreventCornerOverlap="true"
             android:checkable="true"
-            app:strokeWidth="0dp"
+            app:strokeWidth="@dimen/glass_stroke"
             android:layout_margin="@dimen/spacing_xs">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -35,7 +35,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <!-- Stronger bottom gradient for text + actions legibility -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
@@ -104,13 +103,12 @@
 
                 </LinearLayout>
 
-                <!-- Duration badge – more visible -->
                 <TextView
                     android:id="@+id/duration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_sm"
-                    android:background="#CC000000"
+                    android:background="@drawable/bg_glass_surface"
                     android:gravity="center"
                     android:paddingHorizontal="@dimen/spacing_sm"
                     android:paddingVertical="4dp"
@@ -120,7 +118,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
-                <!-- Larger, filled action buttons so they are obvious -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/download_music"
                     style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
