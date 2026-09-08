@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Soft glass fill -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/glass_card" />
+            <stroke
+                android:width="@dimen/glass_stroke"
+                android:color="@color/glass_stroke" />
+            <corners android:radius="28dp" />
+        </shape>
+    </item>
+    <!-- Top specular sheen -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="270"
+                android:startColor="#28FFFFFF"
+                android:centerColor="#0AFFFFFF"
+                android:endColor="#00FFFFFF"
+                android:centerY="0.45" />
+            <corners android:radius="28dp" />
+        </shape>
+    </item>
+</layer-list>
