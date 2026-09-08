@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Glass / Liquid Glass approximation (dark) -->
-    <color name="glass_surface">#33FFFFFF</color>
-    <color name="glass_surface_strong">#661C1C1E</color>
-    <color name="glass_nav">#E61C1C1E</color>
-    <color name="glass_stroke">#40FFFFFF</color>
-    <color name="glass_highlight">#59FFFFFF</color>
-    <color name="glass_scrim">#99000000</color>
+    <!-- Study Plan–inspired dark glass -->
+    <color name="glass_surface">#66202838</color>
+    <color name="glass_surface_strong">#99202838</color>
+    <color name="glass_nav">#E6121824</color>
+    <color name="glass_stroke">#33A0B4C8</color>
+    <color name="glass_highlight">#4DA0B4C8</color>
+    <color name="glass_scrim">#CC0A0E14</color>
+    <color name="glass_card">#CC1A2332</color>
+    <color name="glass_chip">#661E2A3A</color>
+    <color name="glass_accent_start">#FF5B8DEF</color>
+    <color name="glass_accent_end">#FF9B6DFF</color>
 </resources>
