@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Glass / Liquid Glass approximation (dark) -->
+    <color name="glass_surface">#33FFFFFF</color>
+    <color name="glass_surface_strong">#661C1C1E</color>
+    <color name="glass_nav">#E61C1C1E</color>
+    <color name="glass_stroke">#40FFFFFF</color>
+    <color name="glass_highlight">#59FFFFFF</color>
+    <color name="glass_scrim">#99000000</color>
+</resources>
