@@ -28,7 +28,6 @@
         <item name="android:layout_marginStart">5dp</item>
     </style>
 
-    <!-- Existing avatar / image shapes kept for compatibility -->
     <style name="ShapeAppearanceOverlay.Avatar" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5dp</item>
@@ -58,11 +57,7 @@
         <item name="cornerSizeBottomRight">@dimen/shape_chip</item>
     </style>
 
-    <!-- ========================================================= -->
-    <!-- DESIGN TOKENS – ShapeAppearance styles (Chunk 1)          -->
-    <!-- Consistent corner language used by cards, sheets, chips.  -->
-    <!-- ========================================================= -->
-
+    <!-- Glass-era shape tokens -->
     <style name="ShapeAppearance.YTDLnis.Card" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/shape_card</item>
@@ -93,7 +88,6 @@
         <item name="cornerSize">@dimen/shape_dialog</item>
     </style>
 
-    <!-- Convenience overlays for Material components -->
     <style name="ShapeAppearanceOverlay.YTDLnis.Card" parent="ShapeAppearance.Material3.Corner.Medium">
         <item name="cornerSize">@dimen/shape_card</item>
     </style>
@@ -102,9 +96,14 @@
         <item name="cornerSize">@dimen/shape_chip</item>
     </style>
 
-    <!-- ========================================================= -->
-    <!-- Chunk 4 – Navigation chrome                                -->
-    <!-- ========================================================= -->
+    <!-- Glass card widget -->
+    <style name="Widget.YTDLnis.Card.Glass" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/shape_card</item>
+        <item name="cardElevation">@dimen/elevation_glass</item>
+        <item name="strokeColor">@color/glass_stroke</item>
+        <item name="strokeWidth">@dimen/glass_stroke</item>
+        <item name="cardBackgroundColor">@color/glass_surface_strong</item>
+    </style>
 
     <style name="Widget.YTDLnis.BottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">?attr/colorSecondaryContainer</item>
