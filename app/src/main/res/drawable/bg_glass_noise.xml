@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lightweight grain: tiled alpha pattern approximated via gradient noise-like stops -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:type="linear"
+        android:angle="45"
+        android:startColor="#08FFFFFF"
+        android:centerColor="#05FFFFFF"
+        android:endColor="#0A000000" />
+</shape>
