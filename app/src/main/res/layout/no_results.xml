@@ -2,34 +2,58 @@
 <RelativeLayout
     android:id="@+id/no_results"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_xl">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:layout_width="150sp"
-            android:layout_height="100sp"
-            android:layout_gravity="center"
-            android:scaleType="centerInside"
-            android:background="@drawable/ic_no_results" />
+        <FrameLayout
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="?attr/colorSurfaceContainerHigh">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_no_results"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+        </FrameLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_lg"
             android:text="@string/no_results"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:layout_marginHorizontal="@dimen/spacing_xl"
+            android:text="@string/history_is_empty"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="14sp" />
 
+    </LinearLayout>
 
 </RelativeLayout>
